@@ -1,7 +1,11 @@
 <?php
 
+use App\Models\Employee;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $egyptTime = Carbon::now('Africa/Cairo');
+
+    return view('welcome', compact('egyptTime'));
 });
