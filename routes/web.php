@@ -1,11 +1,13 @@
 <?php
 
-use App\Models\Employee;
 use Carbon\Carbon;
+use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
+use App\Bookings\ScheduleAvailability;
 
 Route::get('/', function () {
-    $egyptTime = Carbon::now('Africa/Cairo');
 
-    return view('welcome', compact('egyptTime'));
+    $avaibility = (new ScheduleAvailability())->forPeriod();
+
+    return view('welcome');
 });
